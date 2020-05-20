@@ -5,6 +5,9 @@ import ListBook from '@/components/Book/ListBook'
 import EditBook from '@/components/Book/EditBook'
 import DeleteBook from '@/components/Book/DeleteBook'
 import NewBook from '@/components/Book/NewBook'
+import ListWorkShop from '@/components/WorkShop/ListWorkShop'
+import EditWorkShop from '@/components/WorkShop/EditWorkShop'
+
 
 Vue.use(Router)
 
@@ -35,6 +38,16 @@ export default new Router({
       path: '/books/new',
       name: 'NewBook',
       component: NewBook
+    },
+    {
+      path: '/workshops/',
+      name: 'ListWorkShop',
+      component: ListWorkShop
+    },
+    {
+      path: '/workshops/:workshopId/edit',
+      name: 'EditWorkShop',
+      component: EditWorkShop
     }
   ],
   mode: 'history'
