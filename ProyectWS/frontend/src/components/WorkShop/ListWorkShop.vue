@@ -4,7 +4,7 @@
 			<div class ="col text-left">
 			<div>
 				<h2>Listado de Talleres Motos/Carros Pereira</h2>
-				<!--<b-button size="sm" :to="{name: 'NewBook'}" variant="primary">Nuevo Libro</b-button> -->
+				<b-button size="sm" :to="{name: 'NewWorkShop'}" variant="primary">Nuevo Libro</b-button>
 			</div>
 			<br>
 				<div class = "col-md-12">
@@ -12,7 +12,7 @@
 						 <template slot="cell(action)" slot-scope="data">
 							<b-button size="sm" variant="primary" :to="{name: 'EditWorkShop', params: {workshopId: data.item.id }}">Editar</b-button>
 
-							<b-button size="sm" variant="danger" :to="{ name: 'DeleteBook', params: {bookId: data.item.id }}" >Eliminar</b-button>
+							<b-button size="sm" variant="danger" :to="{ name: 'DeleteWorkShop', params: {workshopId: data.item.id }}" >Eliminar</b-button>
 							
 						</template> 
 						

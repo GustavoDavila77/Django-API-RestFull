@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col text-left">
-				<h2>Editar Talleres</h2>
+				<h2>Nuevo Taller</h2>
 			</div>
 		</div>
 
@@ -35,7 +35,7 @@
 							<div class="rows">
 								<div class="col text-left">
 									<b-button type="submit" variant="primary">
-										Editar
+										Crear
 									</b-button>
 									<b-button type="submit" class="btn-large-space" :to="{ name: 'ListWorkShop'}">
 										Atrás
@@ -58,15 +58,13 @@
 </template>
 
 <script>
-
 import axios from 'axios'
 import swal from 'sweetalert'
 
 export default{
 	data() {
 		return {
-			// se obtiene el id del libro
-			workshopId: this.$route.params.workshopId,
+			
 			form: {
 				name: '',
 				description: '',
@@ -77,49 +75,34 @@ export default{
 	methods: {
 		onSubmit(evt){
 			evt.preventDefault()
-			
-			//se hace el consumo de la api para obtener el id
-			const path = `http://localhost:8000/api/v1.0/workshops/${this.workshopId}/`
 
-			axios.put(path, this.form).then((response) => {
+			const path = 'http://localhost:8000/api/v1.0/workshops/'
+
+			axios.post(path, this.form).then((response) => {
 
 
 				this.form.name = response.data.name
 				this.form.description = response.data.description
 				this.form.address = response.data.address
-				
 
 				
-				swal("Taller actualizado exitosamente!!!", "", "success")
+				swal("Taller creado exitosamente!!!", "", "success")
 			})
 			.catch((error) => {
-				console.log(error)
+				swal("El Taller no ha sido creado", "", "error")
 			})
 
 
 		},
 
-		getWorkShop(){
-			const path = `http://localhost:8000/api/v1.0/workshops/${this.workshopId}/`
-
-			axios.get(path).then((response) => {
-
-				//lo pinta por pantalla el libro que se obtuvo
-				this.form.name = response.data.name
-				this.form.description = response.data.description
-				this.form.address = response.data.address
-			})
-			.catch((error) => {
-				console.log(error)
-			})
-		}
+	
 	},
 	
 	
 	created() {
-		this.getWorkShop()
+		
 	}
-} 
+}
 </script>
 
 <style lang="css" scoped>
