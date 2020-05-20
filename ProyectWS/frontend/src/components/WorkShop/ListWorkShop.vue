@@ -4,7 +4,7 @@
 			<div class ="col text-left">
 			<div>
 				<h2>Listado de Talleres Motos/Carros Pereira</h2>
-				<b-button size="sm" :to="{name: 'NewWorkShop'}" variant="primary">Nuevo Libro</b-button>
+				<b-button size="sm" :to="{name: 'NewWorkShop'}" variant="primary">Nuevo Taller</b-button>
 			</div>
 			<br>
 				<div class = "col-md-12">
@@ -19,8 +19,14 @@
 					</b-table>
 			
 				</div>
+				<div class="row text-center">
+					<div class="col">
+						<b-button size="sm" variant="success" :to="{name: 'ViewWorkShop'}">Ver Mapa</b-button>
+					</div>
+				</div>
 			</div>
 		</div>
+
 	</div>
 </template>
 
